@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1 class="title">Log in</h1>
+    {% include 'includes/_messages.html' %}
+    <form method="POST" action="">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input class="form-control" type="text" name="email" placeholder="email..." value="{{request.form.email}}" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input class="form-control" type="password" name="password" placeholder="password..." value="{{request.form.password}}" required>
+        </div>
+        <div class="d-flex align-items-center justify-content-center m-2">
+            <input type="submit" class="btn btn-success w-25" value="Log in">
+        </div>
+    </form>
+    <p class="link">No Account! <a href="/register">Register Now</a></p>
+</div>
+{% endblock %}

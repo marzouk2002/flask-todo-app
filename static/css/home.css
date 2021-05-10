@@ -1,0 +1,55 @@
+body {
+  background: linear-gradient(to right, rgb(0, 102, 255), rgb(150, 222, 255));
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.title {
+  color: white;
+}
+
+.title h1 {
+  margin: 1rem;
+}
+
+.title h3 {
+  font-weight: 200;
+  color: #eee;
+}
+
+.dashbord-img {
+  width: 60%;
+  margin: 1rem;
+  padding: 1rem;
+}
+.btns {
+  margin: 1rem;
+}
+
+.btns a {
+  text-decoration: none;
+  background-color: rgb(255, 166, 0);
+  padding: 0.5rem 1rem;
+  margin: 1rem 1.5rem;
+  color: #ccc;
+  border-radius: 3px;
+  display: inline-block;
+  transform: scale(1);
+  transform-origin: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.btns a:first-child {
+  background-color: rgb(0, 255, 0);
+}
+
+.btns a:hover {
+  transform: scale(1.2);
+}

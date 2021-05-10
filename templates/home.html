@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="title">
+        <h1>Welcome to FlaskTodo</h1>
+        <h3>Here we get all of your work and life organized in place.</h3>
+    </div>
+    <a href="/login"><img class="dashbord-img" src="{{ url_for('static', filename='images/screenshot.png') }}" alt="dashbord picture"></a>
+    <div class="btns">
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+    </div>
+</div>
+{% endblock %}
