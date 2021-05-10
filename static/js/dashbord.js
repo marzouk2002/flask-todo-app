@@ -14,6 +14,7 @@ function Initializer() {
             displayLists(data.lists)
             selectList()
         })
+        .catch(err => console.log(err))
 }
 
 function displayLists(lists) {
@@ -54,6 +55,7 @@ function fetchTasks(list_id) {
             $(tasksContainer).html('')
             displayTasks(data.tasks)
         })
+        .catch(err => console.log(err))
 }
 
 function displayTasks(tasks) {
@@ -82,6 +84,7 @@ function displayTasks(tasks) {
             .then(data => {
                 $(listCount).text(`${data.counter} tasks remaining`)
             })
+            .catch(err => console.log(err))
         })
         $(tasksContainer).append(taskElement)
     })
@@ -101,6 +104,7 @@ function deleteList() {
             displayLists(data.lists)
             selectList()
         })
+        .catch(err => console.log(err))
 }
 
 function deleteDoneTasks() {
@@ -115,6 +119,7 @@ function deleteDoneTasks() {
     .then(data => {
         displayTasks(data.tasks)
     })
+    .catch(err => console.log(err))
 }
 
 $(listForm).submit((e)=> {
@@ -134,6 +139,7 @@ $(listForm).submit((e)=> {
             selectList()
             $('[data-new-list-input]').val('')
         })
+        .catch(err => console.log(err))
 })
 
 $("[data-new-task-form]").submit((e) => {
@@ -153,6 +159,7 @@ $("[data-new-task-form]").submit((e) => {
         $(tasksContainer).html('')
         displayTasks(data.tasks)
     })
+    .catch(err => console.log(err))
 
 })
 
