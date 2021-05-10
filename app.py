@@ -4,6 +4,7 @@ from flask_mysqldb import MySQL
 from functools import wraps
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
+import os
 
 app = Flask(__name__)
 json = FlaskJSON(app)
@@ -240,5 +241,5 @@ def list():
 
 
 if __name__ == '__main__':
-    app.secret_key = 'secretKey123'
-    app.run(debug=True)
+    app.secret_key = os.urandom(24)
+    app.run()
