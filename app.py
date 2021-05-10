@@ -241,5 +241,6 @@ def list():
 
 
 if __name__ == '__main__':
-    app.secret_key = os.urandom(24)
+    app.secret_key = 'secret key 123'
+    app.config['SESSION_TYPE'] = 'filesystem'
     app.run()
