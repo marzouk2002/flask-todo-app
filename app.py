@@ -243,4 +243,6 @@ def list():
 if __name__ == '__main__':
     app.secret_key = 'secret key 123'
     app.config['SESSION_TYPE'] = 'filesystem'
+    session.init_app(app)
+
     app.run()
