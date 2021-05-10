@@ -7,6 +7,7 @@ from passlib.hash import sha256_crypt
 import os
 
 app = Flask(__name__)
+
 json = FlaskJSON(app)
 
 # json config
@@ -241,8 +242,7 @@ def list():
 
 
 if __name__ == '__main__':
-    app.secret_key = 'secret key 123'
     app.config['SESSION_TYPE'] = 'filesystem'
-    session.init_app(app)
-
+    app.secret_key = os.urandom(24)
+    app.debug = True
     app.run()
