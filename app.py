@@ -80,6 +80,7 @@ def register():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    session.clear()
     if request.method == 'POST':
         email = request.form['email']
         password_can = request.form['password']
@@ -113,6 +114,7 @@ def login():
 def is_logged_in(f):
     @wraps(f)
     def wrap(*args, **kwargs):
+        print(session)
         if 'logged_in' in session:
             return f(*args, **kwargs)
         else:
