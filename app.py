@@ -8,7 +8,7 @@ import os
 
 app = Flask(__name__)
 app.config['SESSION_TYPE'] = 'filesystem'
-app.secret_key = 'secretkey'
+app.secret_key = 'f783ee40ac0b848f6d9a24be261091cee02229d87e8021ce04264eb3157c22ab0a04542a8064a3952c037a773fe6f73539505da971be575beb7514a5ac14299d'
 
 json = FlaskJSON(app)
 
@@ -114,7 +114,6 @@ def login():
 def is_logged_in(f):
     @wraps(f)
     def wrap(*args, **kwargs):
-        print(session)
         if 'logged_in' in session:
             return f(*args, **kwargs)
         else:
