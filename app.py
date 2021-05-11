@@ -8,7 +8,7 @@ import os
 
 app = Flask(__name__)
 app.config['SESSION_TYPE'] = 'filesystem'
-app.secret_key = os.urandom(24)
+app.secret_key = 'secretkey'
 
 json = FlaskJSON(app)
 
