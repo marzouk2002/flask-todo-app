@@ -115,11 +115,12 @@ function deleteDoneTasks() {
         body: JSON.stringify({list_id}),
         headers: {
             'Content-Type': 'application/json'}
-    }).then(res => res.json())
-    .then(data => {
-        displayTasks(data.tasks)
-    })
-    .catch(err => console.log(err))
+    }).then(res => res.text())
+    .then(res => console.log(res))
+//     .then(data => {
+//         displayTasks(data.tasks)
+//     })
+//     .catch(err => console.log(err))
 }
 
 $(listForm).submit((e)=> {
