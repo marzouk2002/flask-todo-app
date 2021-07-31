@@ -1,14 +1,14 @@
+import os
 from flask import Flask, render_template, flash, redirect, url_for, session, logging, request
 from flask_json import FlaskJSON, JsonError, json_response, as_json
 from flask_mysqldb import MySQL
 from functools import wraps
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
-import os
 
 app = Flask(__name__)
 app.config['SESSION_TYPE'] = 'filesystem'
-app.secret_key = 'f783ee40ac0b848f6d9a24be261091cee02229d87e8021ce04264eb3157c22ab0a04542a8064a3952c037a773fe6f73539505da971be575beb7514a5ac14299d'
+app.secret_key = os.environ['SECRET_KEY']
 
 json = FlaskJSON(app)
 
@@ -16,11 +16,11 @@ json = FlaskJSON(app)
 app.config['JSON_ADD_STATUS'] = False
 
 # config mysql
-app.config['MYSQL_HOST'] = 'bdhcrxeh5wrrth7hjhl9-mysql.services.clever-cloud.com'
-app.config['MYSQL_USER'] = 'uhgarfiobxjqzjyj'
-app.config['MYSQL_PASSWORD'] = 'eQOlZxNjckNXCFd102nx'
-app.config['MYSQL_DB'] = 'bdhcrxeh5wrrth7hjhl9'
-app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+app.config['MYSQL_HOST'] = os.environ['MYSQL_HOST']
+app.config['MYSQL_USER'] = os.environ['MYSQL_USER']
+app.config['MYSQL_PASSWORD'] = os.environ['MYSQL_PASSWORD']
+app.config['MYSQL_DB'] = os.environ['MYSQL_DB']
+app.config['MYSQL_CURSORCLASS'] = os.environ['MYSQL_CURSORCLASS']
 # initialise
 mysql = MySQL(app)
 
